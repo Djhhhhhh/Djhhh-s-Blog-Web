@@ -17,7 +17,11 @@ const closeSidebar = () => {
 }
 const router = new useRouter()
 const pagetp1 = () => {
+  topFunction()
   router.push('/article/mainper')
+}
+const pagetp2 = () => {
+  router.push('/classify/class')
 }
 const topFunction = () => {
   document.body.scrollTop = 0
@@ -52,10 +56,10 @@ window.onscroll = function () {
           <div class="kk">导航栏</div>
           <ul>
             <li class="daohang" @click="pagetp1">首页</li>
-            <li class="daohang" @click="pagetp2">asdhahd</li>
-            <li class="daohang" @click="pagetp3">asdhkad</li>
-            <li class="daohang" @click="pagetp4">asdhkad</li>
-            <li class="daohang" @click="pagetp5">asdhkahd</li>
+            <li class="daohang" @click="pagetp2">分类</li>
+            <li class="daohang" @click="pagetp3">时间轴</li>
+            <li class="daohang" @click="pagetp4"></li>
+            <li class="daohang" @click="pagetp5">关于我</li>
           </ul>
         </div>
       </transition>
@@ -275,7 +279,6 @@ window.onscroll = function () {
   height: 30vh;
   border-top: double 5px white;
   border-bottom: double 5px white;
-  transition: 0.5s;
 }
 
 .text .per1 {

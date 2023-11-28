@@ -12,6 +12,9 @@ const tui = () => {
 const pagetp1 = () => {
   router.push('/article/mainper')
 }
+const pagetp2 = () => {
+  router.push('/classify/class')
+}
 const topFunction = () => {
   document.body.scrollTop = 0
   document.documentElement.scrollTop = 0
@@ -72,10 +75,10 @@ const closeSidebar = () => {
         <div class="kk">导航栏</div>
         <ul>
           <li class="daohang" @click="pagetp1">首页</li>
-          <li class="daohang" @click="pagetp2">asdhahd</li>
-          <li class="daohang" @click="pagetp3">asdhkad</li>
-          <li class="daohang" @click="pagetp4">asdhkad</li>
-          <li class="daohang" @click="pagetp5">asdhkahd</li>
+          <li class="daohang" @click="pagetp2">分类</li>
+          <li class="daohang" @click="pagetp3">时间轴</li>
+          <li class="daohang" @click="pagetp4"></li>
+          <li class="daohang" @click="pagetp5">关于我</li>
         </ul>
       </div>
     </transition>

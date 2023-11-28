@@ -18,6 +18,11 @@ const router = createRouter({
       path: '/page/YuLan/:id',
       component: () => import('@/views/page/YuLan.vue'),
       props: true
+    },
+    {
+      path: '/classify/Class',
+      component: () => import('@/views/classify/ClassiFy.vue'),
+      props: true
     }
   ]
 })
