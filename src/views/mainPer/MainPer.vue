@@ -1,17 +1,35 @@
 <script setup>
-import img1 from '../picture/hehua.jpg'
-import img2 from '../picture/tutu.jpg'
+import img1 from '../picture/01.jpg'
+import img2 from '../picture/02.jpg'
 import { computed, ref } from 'vue'
 import { useRouter } from 'vue-router'
 const persons = [
-  { src: img1, name: 'study', mmain: '文章内容。。。', time: '2023.11.20' },
-  { src: img2, name: '蓝桥杯报名流程', mmain: '文章内容。。。', time: '2023.11.20' },
-  { src: img1, name: '我的文章3', mmain: '文章内容。。。', time: '2023.11.20' },
-  { src: img1, name: '我的文章4', mmain: '文章内容。。。', time: '2023.11.20' },
-  { src: img1, name: '我的文章5', mmain: '文章内容。。。', time: '2023.11.20' },
-  { src: img2, name: '我的文章6', mmain: '文章内容。。。', time: '2023.11.20' },
-  { src: img2, name: '我的文章6', mmain: '文章内容。。。', time: '2023.11.20' },
-  { src: img2, name: '我的文章6', mmain: '文章内容。。。', time: '2023.11.20' }
+  {
+    src: img2,
+    name: 'JAVA数据库课程设计',
+    mmain: '课设的实现与总结',
+    time: '2023.12.21'
+  },
+  {
+    src: img2,
+    name: '算法模板',
+    mmain: '整理了作者所学过的所有算法与数据结构,并且可以尝试应付下期末考试',
+    time: '2023.12.12'
+  },
+  { src: img2, name: 'Java', mmain: '学习java,后端的路才刚刚开始', time: '2023.12.12' },
+  {
+    src: img1,
+    name: '蓝桥杯报名流程',
+    mmain: '蓝桥杯报名详细流程以及注意事项',
+    time: '2023.11.20'
+  },
+  { src: img2, name: '算法学习路线', mmain: '算法协会新生学习建议', time: '2023.11.20' },
+  { src: img2, name: 'DP', mmain: '动态规划真是太难了', time: '2023.11.20' },
+  { src: img2, name: 'AJAX', mmain: '异步交互技术', time: '2023.11.20' },
+  { src: img2, name: 'VueRouter', mmain: 'Vue中路由细节', time: '2023.11.20' },
+  { src: img2, name: 'TypeScript', mmain: 'JS增强版,但是现在感觉没啥用了', time: '2023.11.20' },
+  { src: img2, name: 'NodeJs', mmain: 'nodejs nb', time: '2023.11.20' },
+  { src: img2, name: '常用dos命令', mmain: 'dos命令!', time: '2023.11.20' }
 ]
 
 let currentPage = ref(1)
@@ -49,10 +67,7 @@ const zhuanyi = (person) => {
       <div class="d" :style="{ 'background-image': 'url(' + person.src + ')' }"></div>
       <p class="e">{{ person.name }}</p>
       <p class="f">{{ person.mmain }}</p>
-    </div>
-    <div class="pagination-buttons">
-      <button class="btn" @click="dda()">上一页</button>
-      <button class="btn" @click="add()">下一页</button>
+      <p>{{ person.time }}</p>
     </div>
   </div>
   <div class="my">
@@ -60,9 +75,9 @@ const zhuanyi = (person) => {
     <div class="news">
       <ul>
         <li>走出自己的安逸区，敢于去迈上更高的人生台阶</li>
-        <li></li>
-        <li></li>
-        <li></li>
+        <li>这个博客的后端一时半会都出不来:(</li>
+        <li>前端代码仍在努力优化过程中,能封装的全在封装了</li>
+        <li>有点过度写css样式了</li>
         <li></li>
         <li></li>
         <li></li>
@@ -72,6 +87,10 @@ const zhuanyi = (person) => {
     <div v-for="(now, index) in persons.slice(0, 6)" :key="index" class="now" @click="zhuanyi(now)">
       {{ now.time }}—{{ now.name }}
     </div>
+  </div>
+  <div class="pagination-buttons">
+    <button class="btn" @click="dda()">上一页</button>
+    <button class="btn" @click="add()">下一页</button>
   </div>
 </template>
 <style scoped>
@@ -261,23 +280,17 @@ const zhuanyi = (person) => {
 .f {
   opacity: 0;
   transition: 1s;
+  overflow: hidden;
+  z-index: 2;
 }
 .peryl:hover .f {
   opacity: 1;
 }
 
-.main-foot {
-  position: absolute;
-  background-color: red;
-  bottom: 0;
-  width: 100%;
-  height: 2vh;
-}
-
 .pagination-buttons {
   position: absolute;
-  top: 4vh;
-  left: 2vw;
+  bottom: -15vh;
+  left: 2.5vw;
   width: 50vh;
 }
 .btn {

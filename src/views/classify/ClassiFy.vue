@@ -1,10 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-const router = new useRouter()
-const tui = () => {
-  router.push('/article/mainper')
-}
+import Avatar from '../utils/AvaTar.vue'
 const kinds = [
   {
     name: '题解',
@@ -12,24 +9,27 @@ const kinds = [
   },
   {
     name: '算法',
-    per: ['study']
+    per: ['study', '算法学习路线', 'DP', '算法模板']
   },
   {
     name: 'Web前端',
-    per: ['Vue']
+    per: ['Vue', 'AJAX', 'NodeJs', 'VueRouter', 'TypeScript']
   },
   {
     name: 'Web后端',
-    per: []
+    per: ['Java', '常用dos命令', 'JAVA数据库课程设计']
   }
 ]
 let showSidebar = ref(false)
+let showFy = ref(true)
 let currentKind = ref(null)
 const Wa = (index) => {
   console.log(index)
   showSidebar.value = !showSidebar.value
+  showFy.value = !showFy.value
   currentKind.value = kinds[index]
 }
+const router = new useRouter()
 const TP = (name) => {
   router.push(`/page/YuLan/${name}`)
 }
@@ -37,12 +37,14 @@ const TP = (name) => {
 
 <template>
   <div class="classify">
-    <button class="tuii" @click="tui">返回主页</button>
     <div class="hole">
       <div class="circle"></div>
     </div>
+    <!-- 头像 -->
+    <Avatar />
+    <!-- 头像 -->
     <transition name="classF" appear>
-      <div class="classFy">
+      <div class="classFy" v-if="showFy">
         <p class="xx">文章分类</p>
         <ul>
           <li class="ki" v-for="(kind, index) in kinds" :key="index" @click="Wa(index)">
@@ -54,9 +56,10 @@ const TP = (name) => {
     <transition name="rii">
       <div v-if="showSidebar" class="ri" @click="Wa()">
         <ul>
-          <p class="xx">点击任意位置消失</p>
-          <li v-for="(per, index) in currentKind.per" :key="index" @click="TP(per)">
-            {{ per }}
+          <p class="xx">{{ currentKind.name }}</p>
+          <p class="xxx">点击任意位置消失</p>
+          <li class="xxxx" v-for="(per, index) in currentKind.per" :key="index" @click="TP(per)">
+            {{ index + 1 }}.{{ per }}
           </li>
         </ul>
       </div>
@@ -79,11 +82,15 @@ const TP = (name) => {
   margin-bottom: 1vh;
   cursor: pointer;
   transition: 0.5s;
-  width: 30vh;
+  width: 20vw;
+  margin-left: -1vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .ri ul li:hover {
   background-color: #eea2a4;
-  width: 90%;
+  width: 100%;
 }
 .rii-enter-active,
 .rii-leave-active {
@@ -98,6 +105,14 @@ const TP = (name) => {
   justify-content: center;
   font-size: 4vh;
   color: rgba(167, 168, 189, 1);
+  text-shadow: 2px 2px #777;
+  user-select: none;
+}
+.xxx {
+  display: flex;
+  justify-content: center;
+  font-size: 2vh;
+  color: rgb(93, 99, 158);
   text-shadow: 2px 2px #777;
   user-select: none;
 }
@@ -128,27 +143,6 @@ const TP = (name) => {
     0 0 20px #ffffff,
     0 0 30px #ffffff;
 }
-.tuii {
-  position: absolute;
-  top: 6vh;
-  left: 14vh;
-  font-size: 2vh;
-  width: 15vh;
-  height: 10vh;
-  border: none;
-  color: transparent;
-  text-shadow: 0 0px 2px #000000;
-  box-shadow:
-    0 0 10px #ffffff,
-    0 0 20px #ffffff,
-    0 0 30px #ffffff;
-  border-radius: 10%;
-  cursor: pointer;
-  z-index: 1;
-}
-.tuii:hover {
-  text-shadow: 0 0px 1px #000000;
-}
 .classFy {
   position: relative;
   top: 10vh;
@@ -158,10 +152,12 @@ const TP = (name) => {
   border: 0.1vh solid rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(8px);
 }
-.classF-enter-active {
+.classF-enter-active,
+.classF-leave-active {
   transition: all 1s;
 }
-.classF-enter-from {
+.classF-enter-from,
+.classF-leave-to {
   transform: translateX(-110%);
 }
 .hole {
@@ -171,7 +167,7 @@ const TP = (name) => {
   transform: translate(-50%, -50%);
   width: 2vw;
   height: 2vh;
-  animation: hole 8s cubic-bezier(0.1, 0.7, 1, 0.1) infinite;
+  animation: hole 8s linear infinite;
 }
 .classify {
   position: absolute;

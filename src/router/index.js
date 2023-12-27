@@ -23,6 +23,18 @@ const router = createRouter({
       path: '/classify/Class',
       component: () => import('@/views/classify/ClassiFy.vue'),
       props: true
+    },
+    {
+      path: '/Time/time',
+      component: () => import('@/views/time/TimePage.vue')
+    },
+    {
+      path: '/talk/me',
+      component: () => import('@/views/talkme/TalkMe.vue')
+    },
+    {
+      path: '/for/me',
+      component: () => import('@/views/ForMe/ForMe.vue')
     }
   ]
 })
