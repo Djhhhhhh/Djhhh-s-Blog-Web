@@ -43,7 +43,7 @@ window.onscroll = () => {
     0 0 30px black;
   cursor: pointer;
   color: white;
-  font-size: 2vh;
+  font-size: clamp(0.1rem, 2vw, 1.5rem);
   font-weight: bolder;
   text-align: center;
   z-index: 999;

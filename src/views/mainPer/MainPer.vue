@@ -1,35 +1,83 @@
 <script setup>
-import img1 from '../picture/01.jpg'
-import img2 from '../picture/02.jpg'
+// import img1 from '../picture/01.jpg'
+// import img2 from '../picture/02.jpg'
+import img3 from '../picture/03.jpg'
+// import img4 from '../picture/04.png'
+// import img5 from '../picture/05.png'
+// import img6 from '../picture/06.png'
+// import img7 from '../picture/07.png'
+// import img8 from '../picture/08.png'
 import { computed, ref } from 'vue'
 import { useRouter } from 'vue-router'
 const persons = [
   {
-    src: img2,
+    src: img3,
+    name: 'CF板刷日记(三)',
+    mmain: '训练日记，放假喽',
+    time: '2024.1.3'
+  },
+  {
+    src: img3,
+    name: 'CF板刷日记(二)',
+    mmain: '训练日记',
+    time: '2024.1.2'
+  },
+  {
+    src: img3,
+    name: 'CF板刷日记(一)',
+    mmain: '训练日记，元旦快乐',
+    time: '2024.1.1'
+  },
+  {
+    src: img3,
+    name: 'CFRound916(Div.3)',
+    mmain: '补题',
+    time: '2023.12.31'
+  },
+  {
+    src: img3,
+    name: 'CFGoodBye2023',
+    mmain: 'goodBye2023',
+    time: '2023.12.30'
+  },
+  {
+    src: img3,
+    name: 'CFRound918(Div.4)',
+    mmain: 'cfdiv4题解,这场有点破防',
+    time: '2023.12.29'
+  },
+  {
+    src: img3,
     name: 'JAVA数据库课程设计',
     mmain: '课设的实现与总结',
     time: '2023.12.21'
   },
   {
-    src: img2,
+    src: img3,
     name: '算法模板',
     mmain: '整理了作者所学过的所有算法与数据结构,并且可以尝试应付下期末考试',
     time: '2023.12.12'
   },
-  { src: img2, name: 'Java', mmain: '学习java,后端的路才刚刚开始', time: '2023.12.12' },
+  { src: img3, name: 'Java', mmain: '学习java,后端的路才刚刚开始', time: '2023.12.12' },
   {
-    src: img1,
+    src: img3,
     name: '蓝桥杯报名流程',
     mmain: '蓝桥杯报名详细流程以及注意事项',
     time: '2023.11.20'
   },
-  { src: img2, name: '算法学习路线', mmain: '算法协会新生学习建议', time: '2023.11.20' },
-  { src: img2, name: 'DP', mmain: '动态规划真是太难了', time: '2023.11.20' },
-  { src: img2, name: 'AJAX', mmain: '异步交互技术', time: '2023.11.20' },
-  { src: img2, name: 'VueRouter', mmain: 'Vue中路由细节', time: '2023.11.20' },
-  { src: img2, name: 'TypeScript', mmain: 'JS增强版,但是现在感觉没啥用了', time: '2023.11.20' },
-  { src: img2, name: 'NodeJs', mmain: 'nodejs nb', time: '2023.11.20' },
-  { src: img2, name: '常用dos命令', mmain: 'dos命令!', time: '2023.11.20' }
+  { src: img3, name: '算法学习路线', mmain: '算法协会新生学习建议', time: '2023.11.20' },
+  { src: img3, name: 'DP', mmain: '动态规划真是太难了', time: '2023.11.20' },
+  { src: img3, name: 'AJAX', mmain: '异步交互技术', time: '2023.11.20' },
+  { src: img3, name: 'VueRouter', mmain: 'Vue中路由细节', time: '2023.11.20' },
+  { src: img3, name: 'TypeScript', mmain: 'JS增强版,但是现在感觉没啥用了', time: '2023.11.20' },
+  { src: img3, name: 'NodeJs', mmain: 'nodejs nb', time: '2023.11.20' },
+  { src: img3, name: '常用dos命令', mmain: 'dos命令!', time: '2023.11.20' },
+  { src: img3, name: 'CFEDURound154(RatedforDiv. 2)', mmain: '题解!', time: '2023.10.20' },
+  { src: img3, name: 'CFGoodBye2023', mmain: '题解!', time: '2023.10.10' },
+  { src: img3, name: 'CFPinelyRound2(Div.1+Div.2)', mmain: '题解!', time: '2023.10.9' },
+  { src: img3, name: 'CFRound849 (Div.4)', mmain: '题解!', time: '2023.10.8' },
+  { src: img3, name: 'CFRound802(Div.2)', mmain: '题解!', time: '2023.10.7' },
+  { src: img3, name: 'CFRound894(Div.3)', mmain: '题解!', time: '2023.10.6' }
 ]
 
 let currentPage = ref(1)
@@ -37,10 +85,18 @@ const itemsPerPage = 6
 let add = () => {
   currentPage.value++
   if (currentPage.value * itemsPerPage >= persons.length + itemsPerPage) currentPage.value--
+  window.scrollTo({
+    top: 800,
+    behavior: 'smooth'
+  })
 }
 let dda = () => {
   currentPage.value--
   if (currentPage.value < 1) currentPage.value++
+  window.scrollTo({
+    top: 800,
+    behavior: 'smooth'
+  })
 }
 let currentItems = computed(() => {
   let start = (currentPage.value - 1) * itemsPerPage
@@ -66,7 +122,7 @@ const zhuanyi = (person) => {
       <div class="c" :style="{ 'background-image': 'url(' + person.src + ')' }"></div>
       <div class="d" :style="{ 'background-image': 'url(' + person.src + ')' }"></div>
       <p class="e">{{ person.name }}</p>
-      <p class="f">{{ person.mmain }}</p>
+      <p class="f">&emsp;&emsp;{{ person.mmain }}</p>
       <p>{{ person.time }}</p>
     </div>
   </div>
@@ -78,7 +134,7 @@ const zhuanyi = (person) => {
         <li>这个博客的后端一时半会都出不来:(</li>
         <li>前端代码仍在努力优化过程中,能封装的全在封装了</li>
         <li>有点过度写css样式了</li>
-        <li></li>
+        <li>你好 2024</li>
         <li></li>
         <li></li>
       </ul>
@@ -94,20 +150,12 @@ const zhuanyi = (person) => {
   </div>
 </template>
 <style scoped>
-.box {
-  position: absolute;
-  top: 100vh;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-}
 .my {
   position: absolute;
   top: 120vh;
   right: 0;
   bottom: 0;
-  left: 5vh;
+  left: 2.5vw;
   width: 20%;
   height: 90vh;
   z-index: -1;
@@ -124,7 +172,7 @@ const zhuanyi = (person) => {
 
 .content {
   display: flex;
-  font-size: 5vh;
+  font-size: clamp(0.1rem, 2vw, 2.5rem);
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -135,7 +183,7 @@ const zhuanyi = (person) => {
 
 .news {
   margin-top: 2vh;
-  font-size: 2vh;
+  font-size: clamp(0.1rem, 2vw, 1rem);
   height: 40vh;
   width: 100%;
   overflow: hidden;
@@ -149,12 +197,23 @@ const zhuanyi = (person) => {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 3vh;
+  font-size: clamp(0.1rem, 2vw, 1.5rem);
   width: 100%;
   height: 4vh;
   overflow: hidden;
   color: rgba(167, 168, 189, 0.5);
   text-shadow: 2px 2px #777;
+}
+.box {
+  position: absolute;
+  top: 100vh;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80vh;
+  z-index: -1;
+  background-image: url(../picture/svg.png);
 }
 .peryl {
   position: relative;
@@ -166,7 +225,6 @@ const zhuanyi = (person) => {
   height: 30vh;
   border-style: double;
   border-color: black;
-  background-image: url(../picture/hh.jpg);
   background-size: cover;
   justify-content: center;
   align-items: center;
@@ -185,7 +243,7 @@ const zhuanyi = (person) => {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  font-size: 2vh;
+  font-size: clamp(0.1rem, 4vw, 1rem);
   transition: 0.5s;
   cursor: pointer;
   border-left: 1vh double #000000;
@@ -268,19 +326,23 @@ const zhuanyi = (person) => {
   opacity: 0.5;
   font-size: 60px;
   text-align: center;
-  font-size: 5vh;
+  font-size: clamp(0.1rem, 4vw, 2.5rem);
   transition: 1s;
   color: rgb(0, 0, 0);
 }
 
 .peryl:hover .e {
-  font-size: 3vh;
+  font-size: clamp(0.1rem, 4vw, 1.5rem);
   opacity: 1;
 }
 .f {
+  width: 20vw;
+  height: 10vh;
   opacity: 0;
   transition: 1s;
-  overflow: hidden;
+  word-wrap: break-word;
+  word-break: break-all;
+  overflow: auto;
   z-index: 2;
 }
 .peryl:hover .f {
@@ -289,20 +351,21 @@ const zhuanyi = (person) => {
 
 .pagination-buttons {
   position: absolute;
-  bottom: -15vh;
+  top: 220vh;
+  bottom: 5vh;
   left: 2.5vw;
-  width: 50vh;
+  width: 25vw;
 }
 .btn {
   position: relative;
   border-radius: 4vh;
   background-color: rgba(255, 255, 255, 0.1);
-  width: 20vh;
-  margin-right: 4vh;
-  height: 10vh;
+  width: 7.5vw;
+  height: 7vh;
+  margin-right: 1vw;
   cursor: pointer;
   transition: 0.5s;
-  font-size: 2.5vh;
+  font-size: clamp(0.1rem, 1vw, 1.25rem);
   box-shadow:
     0 0 10px #1c0d1a,
     0 0 20px #1c0d1a,
@@ -310,17 +373,17 @@ const zhuanyi = (person) => {
 }
 
 .btn:hover {
-  font-size: 3vh;
+  font-size: clamp(0.1rem, 4vw, 1.5rem);
   background-color: rgba(86, 152, 195, 0.2);
 }
 
 .btn:before {
   content: '';
   position: absolute;
-  width: 4vh;
+  width: 2vw;
   height: 4vh;
   top: -2.3vh;
-  left: -0.3vh;
+  left: -0.15vw;
   background: rgba(210, 53, 125, 0.3);
   border-radius: 50%;
   box-shadow:
@@ -332,10 +395,10 @@ const zhuanyi = (person) => {
 .btn:after {
   content: '';
   position: absolute;
-  width: 4vh;
+  width: 2vw;
   height: 4vh;
   bottom: -2.3vh;
-  right: -1vh;
+  right: -0.5vw;
   background: rgba(54, 41, 47, 0.2);
   box-shadow:
     0 0 10px #f56c6c,

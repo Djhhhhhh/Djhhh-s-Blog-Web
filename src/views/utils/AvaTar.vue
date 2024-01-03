@@ -68,11 +68,11 @@ const topFunction = () => {
   position: relative;
   display: flex;
   top: 5vh;
-  left: 3vh;
+  left: 1.5vw;
   justify-content: flex-start;
   width: 15vw;
   height: 15vh;
-  font-size: 4vh;
+  font-size: clamp(1rem, 2vw, 2rem);
   text-align: center;
   background: -webkit-linear-gradient(top, #e9ccd3, #00ff00);
   background-clip: text;
@@ -109,8 +109,8 @@ const topFunction = () => {
 .profile-image {
   position: fixed;
   top: 10vh;
-  left: 10vh;
-  width: 15vh;
+  left: 5vw;
+  width: 7.5vw;
   height: 15vh;
   border-radius: 50%;
   box-shadow:
@@ -127,8 +127,8 @@ const topFunction = () => {
   z-index: 2;
   border-radius: 20%;
   top: 5vh;
-  left: 25vh;
-  width: 9vh;
+  left: 12.5vw;
+  width: 4.5vw;
   height: 9vh;
   box-shadow:
     0 0 10px #67c23a,
@@ -145,7 +145,7 @@ const topFunction = () => {
 /* 侧边栏样式 */
 .sidebar {
   height: 100%;
-  width: 40vh;
+  width: 20vw;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -156,7 +156,7 @@ const topFunction = () => {
 /* 侧边栏内部字体大小 */
 .daohang {
   cursor: pointer;
-  font-size: 3vh;
+  font-size: clamp(0.7rem, 2vw, 1.5rem);
   line-height: 2;
   transition: 0.5s;
   color: #36292f;
@@ -166,7 +166,7 @@ const topFunction = () => {
 }
 .daohang:hover {
   background-color: #eea2a4;
-  width: 30vh;
+  width: 15vw;
 }
 
 /* 设定侧边栏进出动画 */

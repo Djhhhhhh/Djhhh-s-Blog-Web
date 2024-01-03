@@ -5,7 +5,19 @@ import Avatar from '../utils/AvaTar.vue'
 const kinds = [
   {
     name: '题解',
-    per: []
+    per: [
+      'CF板刷日记(三)',
+      'CF板刷日记(二)',
+      'CF板刷日记(一)',
+      'CFEDURound154(RatedforDiv. 2)',
+      'CFPinelyRound2(Div.1+Div.2)',
+      'CFRound802(Div.2)',
+      'CFRound849 (Div.4)',
+      'CFRound894(Div.3)',
+      'CFRound918(Div.4)',
+      'CFGoodBye2023',
+      'CFRound916(Div.3)'
+    ]
   },
   {
     name: '算法',
@@ -69,17 +81,17 @@ const TP = (name) => {
 <style>
 .ri {
   position: absolute;
-  right: 2vh;
+  right: 1vw;
   top: 2vh;
   height: 95vh;
-  width: 55vh;
+  width: 27.5vw;
   border: 0.1vh solid rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(8px);
   overflow: auto;
 }
 .ri ul li {
-  font-size: 4vh;
-  margin-bottom: 1vh;
+  font-size: clamp(0.1rem, 2vw, 2rem);
+  margin-bottom: 2vh;
   cursor: pointer;
   transition: 0.5s;
   width: 20vw;
@@ -103,7 +115,7 @@ const TP = (name) => {
 .xx {
   display: flex;
   justify-content: center;
-  font-size: 4vh;
+  font-size: clamp(0.1rem, 2vw, 2rem);
   color: rgba(167, 168, 189, 1);
   text-shadow: 2px 2px #777;
   user-select: none;
@@ -111,23 +123,23 @@ const TP = (name) => {
 .xxx {
   display: flex;
   justify-content: center;
-  font-size: 2vh;
+  font-size: clamp(0.1rem, 1vw, 1rem);
   color: rgb(93, 99, 158);
   text-shadow: 2px 2px #777;
   user-select: none;
 }
 .ki {
-  margin-left: 1vh;
+  margin-left: 0.5vw;
   margin-bottom: 3vh;
-  font-size: 5vh;
-  width: 60vh;
+  font-size: clamp(0.1rem, 2.5vw, 4rem);
+  width: 30vw;
   cursor: pointer;
   transition: 0.5s;
   user-select: none;
 }
 .ki:hover {
   background-color: #eea2a4;
-  width: 30vh;
+  width: 15vw;
 }
 .circle {
   position: absolute;
@@ -135,7 +147,7 @@ const TP = (name) => {
   left: 50%;
   transform: translate(-50%, -50%);
   background-image: radial-gradient(#020202 10%, #2e3331 40%, #4991a5 80%, rgb(138, 222, 255) 100%);
-  width: 15vh;
+  width: 7.5vw;
   height: 15vh;
   border-radius: 100%;
   box-shadow:
@@ -146,8 +158,8 @@ const TP = (name) => {
 .classFy {
   position: relative;
   top: 10vh;
-  left: 20vh;
-  width: 82vh;
+  left: 10vw;
+  width: 41vw;
   height: 80vh;
   border: 0.1vh solid rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(8px);

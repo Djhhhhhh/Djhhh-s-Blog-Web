@@ -90,7 +90,7 @@ onBeforeMount(async () => {
 .biaoti {
   position: absolute;
   left: 27%;
-  font-size: 8vh;
+  font-size: clamp(0.1rem, 4.5vw, 4.5rem);
   border-bottom: 0.5vh double;
   animation: bounce 2s infinite; /*设置动画*/
 }
@@ -125,7 +125,7 @@ onBeforeMount(async () => {
   top: 15vh;
   right: 7vw;
   width: 130vh;
-  background-color: rgba(240, 201, 207, 0.2);
+  background-image: url(../picture/04.png);
   padding: 0 2vh 0 2vh;
   border-style: double;
   border-width: 0.5vw;

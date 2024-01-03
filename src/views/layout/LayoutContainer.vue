@@ -44,7 +44,7 @@ import BackTop from '../utils/BackTop.vue'
   transform: translateX(-50%);
   color: #fff;
   text-shadow: 2px 2px #777;
-  font-size: 6vh;
+  font-size: clamp(0.7rem, 4vw, 3rem);
   animation: fadeIn 3s;
   /* 让动画重复进行 */
   animation-iteration-count: infinite;
@@ -59,7 +59,7 @@ import BackTop from '../utils/BackTop.vue'
   transform: translateX(-50%);
   color: #636466;
   text-shadow: 2px 2px #777;
-  font-size: 1.9vh;
+  font-size: clamp(0.1rem, 2vw, 1rem);
 }
 @keyframes fadeIn {
   0% {
@@ -87,7 +87,7 @@ import BackTop from '../utils/BackTop.vue'
 .text .per1 {
   display: flex;
   justify-content: center;
-  font-size: 2vh;
+  font-size: clamp(0.1rem, 2vw, 1rem);
   overflow: hidden;
   color: rgba(255, 255, 255, 1);
   user-select: none;
@@ -95,7 +95,7 @@ import BackTop from '../utils/BackTop.vue'
 .text .per2 {
   display: flex;
   justify-content: center;
-  font-size: 4.5vh;
+  font-size: clamp(0.1rem, 2vw, 2.3rem);
   overflow: hidden;
   color: rgba(255, 255, 255, 1);
   font-weight: bold;
@@ -104,7 +104,7 @@ import BackTop from '../utils/BackTop.vue'
 .text .per3 {
   display: flex;
   justify-content: center;
-  font-size: 3vh;
+  font-size: clamp(0.1rem, 2vw, 1.5rem);
   overflow: hidden;
   color: rgba(255, 255, 255, 1);
   font-style: italic; /* 第二个段落的字体为斜体 */
@@ -139,47 +139,47 @@ import BackTop from '../utils/BackTop.vue'
 .text::after {
   content: '';
   position: absolute;
-  width: 9vh;
+  width: 4.5vw;
   height: 9vh;
   border: 0.2vh solid #766d6d;
 }
 
 .text::before {
   top: -8vh;
-  left: -8vh;
+  left: -4vw;
   animation: animateTop 6s linear infinite;
 }
 
 .text::after {
   bottom: -8vh;
-  right: -8vh;
+  right: -4vw;
   animation: animateBottom 6s linear infinite;
 }
 
 @keyframes animateTop {
   0% {
-    left: -5vh;
+    left: -2.5vw;
   }
   50% {
-    left: calc(100% - 5vh);
+    left: calc(100% - 2.5vw);
     transform: rotate(90deg);
   }
   100% {
-    left: -5vh;
+    left: -2.5vw;
     transform: rotate(180deg);
   }
 }
 
 @keyframes animateBottom {
   0% {
-    right: -5vh;
+    right: -2.5vw;
   }
   50% {
-    right: calc(100% - 5vh);
+    right: calc(100% - 2.5vw);
     transform: rotate(90deg);
   }
   100% {
-    right: -5vh;
+    right: -2.5vw;
     transform: rotate(180deg);
   }
 }
@@ -193,6 +193,6 @@ import BackTop from '../utils/BackTop.vue'
   background-color: #909399;
   color: #15509e;
   opacity: 0.1;
-  font-size: 3vh;
+  font-size: clamp(0.1rem, 2vw, 1.5rem);
 }
 </style>
