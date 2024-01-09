@@ -6,6 +6,11 @@ const kinds = [
   {
     name: '题解',
     per: [
+      'CFEDURound146(Div.2)',
+      'CF板刷日记(六)',
+      'CF板刷日记(五)',
+      'CFRound811(Div.3)',
+      'CF板刷日记(四)',
       'CF板刷日记(三)',
       'CF板刷日记(二)',
       'CF板刷日记(一)',
@@ -29,7 +34,7 @@ const kinds = [
   },
   {
     name: 'Web后端',
-    per: ['Java', '常用dos命令', 'JAVA数据库课程设计']
+    per: ['Java', '常用dos命令', 'JAVA数据库课程设计', 'Git学习']
   }
 ]
 let showSidebar = ref(false)

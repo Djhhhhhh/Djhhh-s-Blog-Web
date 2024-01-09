@@ -12,9 +12,39 @@ import { useRouter } from 'vue-router'
 const persons = [
   {
     src: img3,
+    name: 'CFEDURound146(Div.2)',
+    mmain: '教育',
+    time: '2024.1.8'
+  },
+  {
+    src: img3,
+    name: 'CF板刷日记(六)',
+    mmain: '快乐板刷',
+    time: '2024.1.8'
+  },
+  {
+    src: img3,
+    name: 'CF板刷日记(五)',
+    mmain: '快乐板刷?',
+    time: '2024.1.5'
+  },
+  {
+    src: img3,
+    name: 'CFRound811(Div.3)',
+    mmain: '练场div3,这场打的不行',
+    time: '2024.1.4'
+  },
+  {
+    src: img3,
     name: 'CF板刷日记(三)',
     mmain: '训练日记，放假喽',
     time: '2024.1.3'
+  },
+  {
+    src: img3,
+    name: 'Git学习',
+    mmain: 'git操作大赏',
+    time: '2023.1.2'
   },
   {
     src: img3,

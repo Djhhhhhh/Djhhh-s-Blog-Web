@@ -78,6 +78,40 @@
 
 ​	对于解决动态规划问题，还是需要结合自己的做题经验去积累。
 
+## 最长增长子序列
+
+​	你的工作是计算子序列的最大和。
+
+#### 代码实现
+
+~~~c++
+void solve() {
+    ll n; cin >> n;
+    vector<ll>o(n);
+    for (int i = 0; i < n; i++)cin >> o[i];
+    ll l = 0;
+    ll r = 0;
+    ll be = 0;
+    ll sum = 0;
+    ll mx = -2222;
+    for (int i = 0; i < n; i++) {
+        sum += o[i];
+        if (sum > mx) {
+            mx = sum;
+            l = be;
+            r = i;
+        }
+        if (sum < 0) {
+            be = i + 1;
+            sum = 0;
+        }
+    }
+    cout << mx << " " << l + 1 << " " << r + 1 << "\n";
+}
+~~~
+
+
+
 ## 背包问题
 
 背包问题是线性dp种的典型问题。
