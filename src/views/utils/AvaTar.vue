@@ -18,24 +18,32 @@ const closeSidebar = () => {
 }
 const pagetp1 = () => {
   topFunction()
-  router.push('/article/mainper')
+  router.push('/mainper')
 }
 const pagetp2 = () => {
-  router.push('/classify/class')
+  router.push('/class')
 }
 const pagetp3 = () => {
-  router.push('/Time/time')
+  router.push('/time')
 }
 const pagetp4 = () => {
-  router.push('/talk/me')
+  router.push('/talkme')
 }
 const pagetp5 = () => {
-  router.push('/For/me')
+  router.push('/forme')
 }
 const topFunction = () => {
   document.body.scrollTop = 0
   document.documentElement.scrollTop = 0
 }
+import { userInfoGetService } from '@/api/User.js'
+import { useUserInfoStore } from '@/stores/user.js'
+const userInfoStore = useUserInfoStore()
+const getUserInf = async () => {
+  let result = await userInfoGetService()
+  userInfoStore.info = result.data
+}
+getUserInf()
 // 以上都是头像
 </script>
 <template>
@@ -44,7 +52,7 @@ const topFunction = () => {
     <img
       class="profile-image"
       :class="profileImagePosition"
-      src="../picture/hh.jpg"
+      :src="userInfoStore.info.photo"
       @click.stop="toggleSidebar"
     />
     <transition name="slide">
@@ -107,9 +115,9 @@ const topFunction = () => {
 }
 /* 照片样式 */
 .profile-image {
-  position: fixed;
-  top: 10vh;
-  left: 5vw;
+  position: absolute;
+  top: 6vh;
+  left: 8vw;
   width: 7.5vw;
   height: 15vh;
   border-radius: 50%;
@@ -139,7 +147,7 @@ const topFunction = () => {
 }
 /* 设定鼠标悬浮特效 */
 .profile-image:hover {
-  transform: rotate(20deg) scale(1.5);
+  transform: rotate(20deg) scale(1.2);
   transition: 0.5s;
 }
 /* 侧边栏样式 */

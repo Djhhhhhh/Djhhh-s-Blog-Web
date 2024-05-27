@@ -5,36 +5,35 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      component: () => import('@/views/layout/LayoutContainer.vue'),
-      redirect: '/article/mainper',
-      children: [
-        {
-          path: '/article/mainper',
-          component: () => import('@/views/mainPer/MainPer.vue')
-        }
-      ]
-    },
-    {
-      path: '/page/YuLan/:id',
-      component: () => import('@/views/page/YuLan.vue'),
+      component: () => import('@/views/StartBe.vue'),
       props: true
     },
     {
-      path: '/classify/Class',
-      component: () => import('@/views/classify/ClassiFy.vue'),
+      path: '/mainper',
+      component: () => import('@/views/MainPer.vue'),
       props: true
     },
     {
-      path: '/Time/time',
-      component: () => import('@/views/time/TimePage.vue')
+      path: '/YuLan/:id',
+      component: () => import('@/views/YuLan.vue'),
+      props: true
     },
     {
-      path: '/talk/me',
-      component: () => import('@/views/talkme/TalkMe.vue')
+      path: '/Class',
+      component: () => import('@/views/ClassiFy.vue'),
+      props: true
     },
     {
-      path: '/for/me',
-      component: () => import('@/views/ForMe/ForMe.vue')
+      path: '/time',
+      component: () => import('@/views/TimePage.vue')
+    },
+    {
+      path: '/talkme',
+      component: () => import('@/views/TalkMe.vue')
+    },
+    {
+      path: '/forme',
+      component: () => import('@/views/ForMe.vue')
     }
   ]
 })
