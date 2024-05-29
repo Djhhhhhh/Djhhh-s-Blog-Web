@@ -17,6 +17,7 @@
     "@kangc/v-md-editor": "^2.3.18",
     "axios": "^1.6.2",
     "element-plus": "^2.4.2",
+    "highlightjs": "^9.16.2",
     "html-loader": "^4.2.0",
     "markdown-it": "^13.0.2",
     "markdown-loader": "^8.0.0",

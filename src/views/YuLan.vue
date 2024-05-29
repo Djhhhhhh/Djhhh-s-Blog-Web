@@ -1,8 +1,6 @@
 <script setup>
 import { useRoute } from 'vue-router'
 import { ref } from 'vue'
-import AvaTar from '@/views/utils/AvaTar.vue'
-import '@/assets/whitey.css'
 import { EssayFind } from '@/api/Essay.js'
 import { onMounted } from 'vue'
 import hljs from 'highlight.js'
@@ -17,7 +15,6 @@ const getArticles = async () => {
   )
   document.querySelector('.biaoti').innerHTML = articles.value.name
   document.querySelector('.arc').innerHTML = articles.value.text
-  document.querySelector('.msg').innerHTML = ':' + articles.value.message
   document.querySelector('.time').innerHTML = '最后修改时间:' + articles.value.lastup_time
   let h2s = document.getElementsByTagName('h2')
   let text = '<h style="font-size: 3vh;">目录</h>'
@@ -72,76 +69,37 @@ onMounted(async () => {
 })
 </script>
 <template>
-  <AvaTar />
-  <el-backtop :right="100" :bottom="100" />
-  <div class="common-layout">
-    <el-container>
-      <el-aside width="460px">
-        <div class="h2tp">
+  <el-container>
+    <el-header>
+      <el-collapse
+        v-model="activeNames"
+        @change="handleChange"
+        style="width: 30%; display: inline-block"
+      >
+        <el-collapse-item title="导航栏">
           <div class="tp"></div>
-        </div>
-      </el-aside>
-      <el-container>
-        <el-header class="header">
-          <span class="biaoti"></span>
-          <span class="msg"></span>
-          <div class="time"></div>
-        </el-header>
-        <el-main>
-          <div class="arc"></div>
-        </el-main>
-      </el-container>
-    </el-container>
-  </div>
+        </el-collapse-item>
+      </el-collapse>
+    </el-header>
+    <el-main>
+      <div class="main">
+        <el-container>
+          <el-header style="height: auto">
+            <span class="biaoti"></span>
+            <div class="time"></div>
+          </el-header>
+          <el-main>
+            <div class="arc"></div>
+          </el-main>
+        </el-container>
+      </div>
+    </el-main>
+  </el-container>
 </template>
 <style scoped>
-.msg {
-  display: inline-block;
-  font-size: 20px;
-  width: 600px;
-  margin: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.time {
-  display: inline-block;
-  border-bottom: 0.5px solid;
-  width: 300px;
-}
-.biaoti {
-  display: inline-block;
-  font-size: 70px;
-  border-bottom: 0.5vh double;
-  animation: bounce 2s infinite;
-}
-@keyframes bounce {
-  /*创建动画*/
-  0%,
-  100%,
-  20%,
-  50%,
-  80% {
-    -webkit-transform: translateY(0);
-  }
-  40% {
-    -webkit-transform: translateY(-10px);
-  }
-  60% {
-    -webkit-transform: translateY(-5px);
-  }
-}
-.h2tp {
-  position: fixed;
-  bottom: 2vh;
-  left: 2vw;
-  width: 400px;
-  border: 0.1vh solid rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(8px);
-}
 .tp {
   position: relative;
-  height: 60vh;
+  height: 50vh;
   padding-left: 2vw;
   border-left: double;
   line-height: 2;
@@ -149,6 +107,27 @@ onMounted(async () => {
   color: black;
   overflow: auto;
   text-overflow: ellipsis;
+  border: 0.1vh solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+  z-index: 100;
+}
+.main {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 5px 15px rgba(20, 20, 20, 0.8);
+  overflow: auto;
+}
+.time {
+  display: block;
+  text-align: center;
+  /* animation: slideInFromRight 3s ease-out forwards; */
+}
+.biaoti {
+  font-size: 70px;
+  text-align: center;
+  display: block;
+  /* animation: slideInFromRight 3s ease-out forwards; */
 }
 .header {
   height: 120px;
@@ -157,7 +136,18 @@ onMounted(async () => {
   overflow: auto;
   word-wrap: break-word;
   padding: 0 2vh 0 2vh;
-  border-style: double;
-  border-width: 0.5vw;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 5px 15px rgba(20, 20, 20, 0.2);
+  animation: slideInFromRight 1.5s ease-out forwards;
+}
+@keyframes slideInFromRight {
+  0% {
+    transform: translateY(-20%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 </style>

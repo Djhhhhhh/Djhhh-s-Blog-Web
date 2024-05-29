@@ -1,5 +1,3 @@
-<script setup>
-import AvaTar from '@/views/utils/AvaTar.vue'
-</script>
-<template><AvaTar /></template>
+<script setup></script>
+<template>暂时没啥用</template>
 <style></style>

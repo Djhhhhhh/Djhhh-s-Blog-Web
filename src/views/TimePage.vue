@@ -1,13 +1,5 @@
 <script setup>
-import AvaTar from '@/views/utils/AvaTar.vue'
-import { onMounted, onUnmounted, ref } from 'vue'
-import bgc from '../assets/blackbgc.webp'
-onMounted(async () => {
-  document.body.style.backgroundImage = `url(${bgc})`
-})
-onUnmounted(() => {
-  document.body.style.backgroundImage = ''
-})
+import { ref } from 'vue'
 //文章分类数据模型
 const categorys = ref('')
 //文章列表数据模型
@@ -63,42 +55,60 @@ const zhuanyi = (person) => {
 }
 </script>
 <template>
-  <AvaTar />
-  <el-timeline class="hide-scrollbar">
-    <el-timeline-item
-      v-for="(article, index) in articles"
-      :key="index"
-      :timestamp="article.lastup_time + '  所属分类为:' + article.category_id"
-      placement="top"
-    >
-      <el-card class="card" @click="zhuanyi(article)">
-        <h4>{{ article.name }}</h4>
-        <p style="width: 600px">{{ article.message }}</p>
-        <p style="text-align: end; margin: 0">--- {{ article.lastup_time }}</p>
-      </el-card>
-    </el-timeline-item>
-  </el-timeline>
+  <el-container>
+    <el-main>
+      <div class="main">
+        <el-timeline style="margin-top: 5%">
+          <el-timeline-item
+            v-for="(article, index) in articles"
+            :key="index"
+            :timestamp="article.lastup_time + '  所属分类为:' + article.category_id"
+            placement="top"
+            style="width: 60%"
+          >
+            <el-card
+              class="card"
+              @click="zhuanyi(article)"
+              :style="{ animationDelay: index * 0.3 + 's' }"
+            >
+              <h4>{{ article.name }}</h4>
+              <p style="width: 600px">{{ article.message }}</p>
+              <p style="text-align: end; margin: 0">--- {{ article.lastup_time }}</p>
+            </el-card>
+          </el-timeline-item>
+        </el-timeline>
+      </div>
+    </el-main>
+  </el-container>
 </template>
 <style>
-.hide-scrollbar {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%); /* 50%为自身尺寸的一半 */
-  height: 800px;
-  overflow-y: auto;
-}
-.hide-scrollbar::-webkit-scrollbar {
-  display: none;
+.main {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 5px 15px rgba(20, 20, 20, 0.8);
+  overflow: auto;
 }
 .card {
   cursor: pointer;
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px); /* 对 Safari 的兼容 */
-  background-color: rgba(255, 255, 255, 0.5); /* 半透明的白色背景 */
+  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(230, 210, 213, 0.5);
   transition: 0.3s;
+  opacity: 0;
+  animation: slideInFromRight 2s ease-out forwards;
 }
 .card:hover {
-  background-color: rgba(255, 255, 255, 0.8); /* 半透明的白色背景 */
+  background-color: rgba(147, 181, 207, 0.8);
+}
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(-30%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 </style>

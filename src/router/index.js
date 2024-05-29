@@ -5,35 +5,16 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      component: () => import('@/views/StartBe.vue'),
-      props: true
-    },
-    {
-      path: '/mainper',
       component: () => import('@/views/MainPer.vue'),
-      props: true
-    },
-    {
-      path: '/YuLan/:id',
-      component: () => import('@/views/YuLan.vue'),
-      props: true
-    },
-    {
-      path: '/Class',
-      component: () => import('@/views/ClassiFy.vue'),
-      props: true
-    },
-    {
-      path: '/time',
-      component: () => import('@/views/TimePage.vue')
-    },
-    {
-      path: '/talkme',
-      component: () => import('@/views/TalkMe.vue')
-    },
-    {
-      path: '/forme',
-      component: () => import('@/views/ForMe.vue')
+      props: true,
+      children: [
+        { path: '/', component: () => import('@/views/PageCard.vue') },
+        { path: '/YuLan/:id', component: () => import('@/views/YuLan.vue') },
+        { path: '/Class', component: () => import('@/views/ClassiFy.vue') },
+        { path: '/time', component: () => import('@/views/TimePage.vue') },
+        { path: '/talkme', component: () => import('@/views/TalkMe.vue') },
+        { path: '/forme', component: () => import('@/views/ForMe.vue') }
+      ]
     }
   ]
 })
